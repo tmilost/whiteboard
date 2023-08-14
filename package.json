@@ -16,6 +16,9 @@
     "sass-loader": "^13.3.2"
   },
   "dependencies": {
-    "@vue-flow/core": "^1.22.2"
+    "@vue-flow/background": "^1.2.0",
+    "@vue-flow/controls": "^1.1.0",
+    "@vue-flow/core": "^1.22.2",
+    "@vue-flow/minimap": "^1.1.1"
   }
 }
