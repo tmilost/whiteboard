@@ -1,48 +1,65 @@
 <script setup>
 import { Handle, Position } from '@vue-flow/core'
 import { computed } from 'vue'
-import { colors } from '../utils/presets.js'
+import { defineProps, defineEmits } from "vue";
+
 
 const props = defineProps({
     data: {
-        type: Object,
+        text: String,
         required: true,
     },
 })
 
-const emit = defineEmits(['change', 'gradient'])
 
-function onSelect(color) {
-    emit('change', color)
-}
+const triangleInput = props.data.text
 
-function onGradient() {
-    emit('gradient')
-}
-
-const sourceHandleStyleA = computed(() => ({ backgroundColor: props.data.color, filter: 'invert(100%)', top: '10px' }))
+const sourceHandleStyleA = computed(() => ({ filter: 'invert(100%)', top: '0' }))
 
 const sourceHandleStyleB = computed(() => ({
-    backgroundColor: props.data.color,
     filter: 'invert(100%)',
-    bottom: '10px',
-    top: 'auto',
+    left: '90px',
+    top: '85px',
 }))
+
+const sourceHandleStyleC = computed(() => ({
+    filter: 'invert(100%)',
+    right: '86px',
+    top: '88px',
+}))
+
 </script>
 
 <template>
-    <div>Select a color</div>
-
-    <div
-        style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; max-width: 90%; margin: auto; gap: 3px">
-        <template v-for="color of colors" :key="color.name">
-            <button :title="color.name" :style="{ backgroundColor: color.value }" type="button" @click="onSelect(color)" />
-        </template>
-
-        <button class="animated-bg-gradient" title="gradient" type="button" @click="onGradient" />
+    <div class="triangle-div">
+        <input class="triangle-input" v-model="triangleInput">
     </div>
 
     <Handle id="a" type="source" :position="Position.Right" :style="sourceHandleStyleA" />
 
-    <Handle id="b" type="source" :position="Position.Right" :style="sourceHandleStyleB" />
+    <Handle id="b" type="source" :position="Position.left" :style="sourceHandleStyleB" />
+
+    <Handle id="c" type="source" :position="Position.Right" :style="sourceHandleStyleC" />
 </template>
+
+<style lang="scss">
+.triangle-input {
+    margin-top: 65px;
+    width: 120px;
+}
+
+.triangle-div {
+    margin-top: 1.2px;
+    width: 0;
+    height: 0;
+    border-left: 87px solid transparent;
+    border-right: 87px solid transparent;
+    border-bottom: 87px solid var(--vf-node-bg);
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+</style>
