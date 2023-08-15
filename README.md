@@ -1,4 +1,4 @@
-<img src="./nuxt.jpg" width="300"/>
+<img src="./nuxt.JPG" width="300"/>
 
 # Nuxt 3 Minimal Starter
 
