@@ -1,4 +1,4 @@
-<img src="https://github.com/tmilost/whiteboard/nuxt.jpg" width="128"/>
+<img src="./nuxt.jpg" width="300"/>
 
 # Nuxt 3 Minimal Starter
 
