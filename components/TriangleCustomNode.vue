@@ -1,16 +1,13 @@
 <script setup>
 import { Handle, Position } from '@vue-flow/core'
 import { computed } from 'vue'
-import { defineProps, defineEmits } from "vue";
-
 
 const props = defineProps({
     data: {
-        text: String,
+        type: Object,
         required: true,
     },
 })
-
 
 const triangleInput = props.data.text
 
@@ -31,15 +28,16 @@ const sourceHandleStyleC = computed(() => ({
 </script>
 
 <template>
+    <div>
     <div class="triangle-div">
         <input class="triangle-input" v-model="triangleInput">
     </div>
-
     <Handle id="a" type="source" :position="Position.Right" :style="sourceHandleStyleA" />
 
     <Handle id="b" type="source" :position="Position.left" :style="sourceHandleStyleB" />
 
     <Handle id="c" type="source" :position="Position.Right" :style="sourceHandleStyleC" />
+</div>
 </template>
 
 <style lang="scss">
@@ -55,7 +53,6 @@ const sourceHandleStyleC = computed(() => ({
     border-left: 87px solid transparent;
     border-right: 87px solid transparent;
     border-bottom: 87px solid var(--vf-node-bg);
-
 
     display: flex;
     flex-direction: column;
