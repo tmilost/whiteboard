@@ -1,4 +1,4 @@
-![alt text](https://github.com/tmilost/whiteboard/image.png?raw=true)
+![alt text](https://github.com/tmilost/whiteboard/nuxt.png?raw=true)
 
 
 # Nuxt 3 Minimal Starter
