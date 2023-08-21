@@ -29,6 +29,11 @@ function onDragStart(event, nodeType) {
         <div class="slack-logo"><img src="../public/Slack-Logo.png" alt="slack logo"></div>
       </div>
 
+      <div :draggable="true" @dragstart="onDragStart($event, 'stickyNote')">
+        <div class="vue-flow__node-input">
+          <p>Sticky Note</p>
+        </div>
+      </div>
     </div>
   </aside>
 </template>

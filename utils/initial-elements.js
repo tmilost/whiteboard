@@ -35,7 +35,25 @@ export const initialElements = [
     data: { text: "" },
     position: { x: 60, y: 50 },
   },
-  { id: "e1-2", source: "1", target: "2", animated: true },
+  {
+    id: "7",
+    label: "Node 7",
+    type: "stickyNote",
+    data: {
+      text: "https://gojs.net/latest/samples/dynamicPorts.html https://www.jointjs.com/vue-diagrams https://jsplumbtoolkit.com/",
+    },
+    position: { x: -62, y: -277 },
+  },
+  {
+    id: "8",
+    label: "Node 8",
+    type: "stickyNote",
+    data: {
+      text: "https://snippet.dhtmlx.com/9u0ix3na https://github.com/bpmn-io/diagram-js https://jerosoler.github.io/Drawflow/",
+    },
+    position: { x: 209, y: -283 },
+  },
+  { id: "e1-2", source: "1", target: "2", animated: true, updatable: true },
   {
     id: "e1-3",
     label: "edge with arrowhead",

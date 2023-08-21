@@ -8,10 +8,13 @@ import { ref } from 'vue'
 import { initialElements } from '../utils/initial-elements.js'
 import Sidebar from '../components/Sidebar.vue'
 import TriangleNode from '../components/TriangleCustomNode.vue'
+import StickyNote from '../components/StickyNote.vue'
+
 import Welcome from '../components/Welcome.vue'
 
 const nodeTypes = {
     triangle: markRaw(TriangleNode),
+    stickyNote: markRaw(StickyNote),
 }
 
 const { onPaneReady, onNodeDragStop, onConnect, addEdges, setTransform, toObject } = useVueFlow()
@@ -165,8 +168,11 @@ function onDisplayBoard(name) {
                                 d="M20 19V7H4v12h16m0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16m-7 14v-2h5v2h-5m-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59l3.99-4Z" />
                         </svg>
                     </button>
-                    <template #node-custom="{ data }">
-                        <TriangleNode :data="data" />
+                    <template #node-custom="{ data, id }">
+                        <TriangleNode :data="data" :id="id" />
+                    </template>
+                    <template #node-stickyNote="{ data, id }">
+                        <StickyNote :data="data"/>
                     </template>
                 </Panel>
             </VueFlow>
